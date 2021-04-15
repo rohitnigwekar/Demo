@@ -1,0 +1,30 @@
+﻿@model UdemyClass.ViewModel.ListOfMovies
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@Html.ActionLink("New Movie", "MovieForm", "Movies")
+<h2>List of Movies</h2>
+
+@if (Model.Movies.Count == 0)
+{
+    <p>No one has rented this moview before.</p>
+}
+else
+{
+    <ul>
+
+        @foreach (var Movie in Model.Movies)
+        {
+            <li>
+
+                @Html.ActionLink(Movie.Name, "Details", "Movies", new { id = Movie.Id }, "")
+
+            </li>
+        }
+
+    </ul>
+}

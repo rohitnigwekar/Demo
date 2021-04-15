@@ -1,0 +1,33 @@
+﻿@model UdemyClass.ViewModel.ListOfCustomer
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List of Customer</h2>
+
+@if (Model.Customers.Count == 0)
+{
+    <p>No one has rented this moview before.</p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Customer</th>
+                <th>Membership Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model.Customers)
+            {
+                <tr>
+                    <td>@Html.ActionLink(customer.Name, "Edit", "Customer", new { id = customer.Id }, "")</td>
+                    <td>@customer.MembershipType.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+}
