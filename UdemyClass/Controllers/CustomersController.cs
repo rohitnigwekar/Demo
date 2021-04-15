@@ -12,9 +12,6 @@ namespace UdemyClass.Controllers
     {
         private ApplicationDbContext _Context;
 
-
-
-
         public CustomersController()
         {
             _Context = new ApplicationDbContext();
